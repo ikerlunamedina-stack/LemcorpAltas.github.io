@@ -1,0 +1,25 @@
+/* Bloques generales */
+.pedido-bloque {
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 12px;
+}
+
+/* Pendientes: fondo amarillo suave */
+.pedido-pendiente {
+  background-color: #fff8dc; /* cornsilk */
+  border-color: #f0ad4e;
+}
+
+/* Hechos: fondo verde suave */
+.pedido-hecho {
+  background-color: #e6ffe6;
+  border-color: #5cb85c;
+}
+
+/* Títulos */
+.pedido-bloque h3 {
+  margin-top: 0;
+  font-size: 1.1em;
+}

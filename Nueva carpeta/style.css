@@ -1,0 +1,201 @@
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  color: #333;
+  margin: 0;
+  padding: 0;
+
+  /* Fondo de pantalla con imagen */
+  background-image: url("ChatGPT Image 23 may 2026, 10_47_10.png"); /* pon aquí tu imagen */
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+header {
+  background: linear-gradient(135deg, #2563eb, #1e40af);
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  border-bottom: 5px solid #0f172a;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 28px;
+  letter-spacing: 2px;
+}
+
+.container {
+  max-width: 900px;
+  margin: 20px auto;
+  background: rgba(33, 46, 105, 0.85);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.card {
+  background: #f9fafb;
+  padding: 12px;
+  border-radius: 10px;
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #e5e7eb;
+}
+
+.nombre {
+  font-weight: bold;
+  color: #1e293b;
+}
+
+.controles button {
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 10px;
+  cursor: pointer;
+}
+
+.controles button:hover {
+  background: #1d4ed8;
+}
+
+.cantidad {
+  width: 50px;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 4px;
+}
+
+.enviar {
+  background: #16a34a;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 12px;
+  width: 100%;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+.enviar:hover {
+  background: #15803d;
+}
+
+.pedido-bloque {
+  background: #f9fafb;
+  border-radius: 12px;
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.9);
+}
+
+.pedido-bloque h3 {
+  margin-top: 0;
+  color: #2563eb;
+}
+
+.pedido-bloque table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.pedido-bloque th, .pedido-bloque td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.pedido-bloque th {
+  background: #e0e0e0;
+  color: white;
+}
+
+.copy-btn {
+  background: #f59e0b;
+  color: black;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.copy-btn:hover {
+  background: #d97706;
+}
+
+.done-btn {
+  background: #16a34a;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-left: 5px;
+}
+.done-btn:hover { background: #15803d; }
+
+.delete-btn {
+  background: #dc2626;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-left: 5px;
+}
+.delete-btn:hover { background: #b91c1c; }
+/* Bloques generales */
+.pedido-bloque {
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 12px;
+}
+
+/* Pendientes: fondo amarillo suave */
+.pedido-pendiente {
+  background-color: #fff8dc; /* cornsilk */
+  border-color: #f0ad4e;
+}
+
+/* Hechos: fondo verde suave */
+.pedido-hecho {
+  background-color: #e6ffe6;
+  border-color: #5cb85c;
+}
+
+/* Títulos */
+.pedido-bloque h3 {
+  margin-top: 0;
+  font-size: 1.1em;
+}
+/* Encabezados principales */
+.container h2 {
+  background-color: #333;   /* fondo oscuro */
+  color: #fff;              /* texto blanco */
+  padding: 8px 12px;
+  border-radius: 6px;
+  margin-top: 20px;
+  font-size: 1.2em;
+}
+
+/* Encabezado de sección Pendientes */
+.container h2:nth-of-type(1) {
+  background-color: #f0ad4e; /* naranja/amarillo */
+  color: #fff;
+}
+
+/* Encabezado de sección Hechos */
+.container h2:nth-of-type(2) {
+  background-color: #5cb85c; /* verde */
+  color: #fff;
+}

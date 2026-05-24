@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Gestión de Pedidos</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Pantalla de carga */
+    #loader {
+      position: fixed;
+      z-index: 9999;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    #loader img {
+      width: 200px;
+      animation: fadeIn 1.5s ease-in-out infinite alternate;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0.3; }
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Pantalla de carga -->
+  <div id="loader">
+    <img src="image-removebg-preview.png" alt="Lemcorp Logo">
+  </div>
+
+  <!-- Contenido principal -->
+  <header style="display:none;" id="contenido">
+    <h1>Gestión de Pedidos</h1>
+  </header>
+
+  <div class="container" style="display:none;" id="contenido2">
+    <h2>📋 Pedidos Guardados</h2>
+    <div id="tablaPedidos"></div>
+  </div>
+
+  <!-- Script -->
+  <script src="javaScriptAdmin.js"></script>
+  <script>
+    // Ocultar loader después de 2 segundos
+    window.addEventListener("load", function(){
+      setTimeout(()=>{
+        document.getElementById("loader").style.display = "none";
+        document.getElementById("contenido").style.display = "block";
+        document.getElementById("contenido2").style.display = "block";
+      }, 2000);
+    });
+  </script>
+</body>
+</html>
