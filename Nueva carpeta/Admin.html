@@ -2,56 +2,78 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Gestión de Pedidos</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LEMCORP ALTAS | Registros</title>
   <link rel="stylesheet" href="style.css">
   <style>
-    /* Pantalla de carga */
     #loader {
       position: fixed;
       z-index: 9999;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: #fff;
+      inset: 0;
+      background: linear-gradient(135deg, #08111f, #12335f);
       display: flex;
       align-items: center;
       justify-content: center;
     }
     #loader img {
-      width: 200px;
-      animation: fadeIn 1.5s ease-in-out infinite alternate;
+      width: min(220px, 55vw);
+      filter: drop-shadow(0 24px 50px rgba(0, 0, 0, 0.35));
+      animation: fadeIn 1.1s ease-in-out infinite alternate;
     }
     @keyframes fadeIn {
-      from { opacity: 0.3; }
-      to { opacity: 1; }
+      from { opacity: 0.45; transform: translateY(8px) scale(0.98); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
     }
   </style>
 </head>
 <body>
-  <!-- Pantalla de carga -->
   <div id="loader">
     <img src="image-removebg-preview.png" alt="Lemcorp Logo">
   </div>
 
-  <!-- Contenido principal -->
-  <header style="display:none;" id="contenido">
-    <h1>Gestión de Pedidos</h1>
+  <header class="site-header" style="display:none;" id="contenido">
+    <div class="brand-block">
+      <span class="eyebrow">Control empresarial</span>
+      <h1>Registros de pedidos</h1>
+      <p>Seguimiento limpio de pendientes, hechos y solicitudes del equipo técnico.</p>
+    </div>
+    <nav class="app-nav" aria-label="Navegación principal">
+      <a href="tecnicos.html">Pedidos</a>
+      <a class="active" href="Admin.html">Registros</a>
+      <a href="tecnicos.html#nuevo">Técnicos</a>
+    </nav>
   </header>
 
-  <div class="container" style="display:none;" id="contenido2">
-    <h2>📋 Pedidos Guardados</h2>
-    <div id="tablaPedidos"></div>
-  </div>
+  <main class="app-shell" style="display:none;" id="contenido2">
+    <section class="hero-panel">
+      <div>
+        <span class="eyebrow">Despacho LEMCORP</span>
+        <h2>Vista administrativa</h2>
+        <p>Pedidos separados por estado para evitar que los registros se amontonen o se oculten.</p>
+      </div>
+      <a class="secondary-action" href="tecnicos.html">Nuevo pedido</a>
+    </section>
 
-  <!-- Script -->
+    <section class="container records-panel" id="registros">
+      <div class="section-heading">
+        <span>03</span>
+        <div>
+          <h2>Pedidos guardados</h2>
+          <p>Revisa, copia, marca como hecho o elimina registros desde tarjetas amplias.</p>
+        </div>
+      </div>
+      <div id="tablaPedidos"></div>
+    </section>
+  </main>
+
   <script src="javaScriptAdmin.js"></script>
   <script>
-    // Ocultar loader después de 2 segundos
     window.addEventListener("load", function(){
       setTimeout(()=>{
         document.getElementById("loader").style.display = "none";
-        document.getElementById("contenido").style.display = "block";
+        document.getElementById("contenido").style.display = "flex";
         document.getElementById("contenido2").style.display = "block";
-      }, 2000);
+      }, 800);
     });
   </script>
 </body>
