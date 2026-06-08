@@ -52,27 +52,32 @@ function mostrarPedidos(){
   }
 
   // Separar pedidos por estado
-  const pendientes = pedidos.filter(p => p.estado === "Pendiente");
-  const hechos = pedidos.filter(p => p.estado === "Hecho");
+  const pendientes = pedidos
+    .map((pedido, index) => ({ pedido, index }))
+    .filter(item => item.pedido.estado === "Pendiente");
+  const hechos = pedidos
+    .map((pedido, index) => ({ pedido, index }))
+    .filter(item => item.pedido.estado === "Hecho");
 
   // Renderizar pendientes
-  contenedor.innerHTML += "<h2>📌 Pendientes</h2>";
-  pendientes.forEach((p,index)=>{
-    contenedor.innerHTML += renderPedido(p,index);
+  contenedor.innerHTML += "<h2>Pendientes</h2>";
+  pendientes.forEach(item=>{
+    contenedor.innerHTML += renderPedido(item.pedido,item.index);
   });
 
   // Renderizar hechos
-  contenedor.innerHTML += "<h2>✅ Hechos</h2>";
-  hechos.forEach((p,index)=>{
-    contenedor.innerHTML += renderPedido(p,index);
+  contenedor.innerHTML += "<h2>Hechos</h2>";
+  hechos.forEach(item=>{
+    contenedor.innerHTML += renderPedido(item.pedido,item.index);
   });
 }
 
 // Función auxiliar para renderizar un pedido
 function renderPedido(p,index){
+  const estadoClass = p.estado === "Hecho" ? "pedido-hecho" : "pedido-pendiente";
   let bloque = `
-    <div class="pedido-bloque">
-      <h3>👷 Técnico: ${p.tecnico} - ${p.estado}</h3>
+    <div class="pedido-bloque ${estadoClass}">
+      <h3>Técnico: ${p.tecnico} · ${p.estado}</h3>
       <p><b>Fecha:</b> ${p.fecha}</p>
       <ul>
   `;
@@ -89,13 +94,15 @@ function renderPedido(p,index){
   bloque += "</ul>";
 
   if(p.adicional && p.adicional.trim() !== ""){
-    bloque += `<p><b>📝 Adicional:</b> ${p.adicional}</p>`;
+    bloque += `<p><b>Adicional:</b> ${p.adicional}</p>`;
   }
 
   bloque += `
-    <button onclick="copiarPedido(${index})">📋 Copiar</button>
-    <button onclick="marcarHecho(${index})">✅ Hecho</button>
-    <button onclick="eliminarPedido(${index})">🗑️ Eliminar</button>
+    <div class="pedido-actions">
+      <button class="copy-btn" onclick="copiarPedido(${index})">Copiar</button>
+      <button class="done-btn" onclick="marcarHecho(${index})">Hecho</button>
+      <button class="delete-btn" onclick="eliminarPedido(${index})">Eliminar</button>
+    </div>
   </div>
   `;
 

@@ -1,80 +1,64 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LEMCORP ALTAS - Sistema de Pedidos</title>
+  <title>LEMCORP ALTAS | Pedidos técnicos</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <header class="site-header">
+    <div class="brand-block">
+      <span class="eyebrow">Operación logística</span>
+      <h1>Pedidos técnicos</h1>
+      <p>Solicita materiales de forma ordenada, visible y lista para despacho.</p>
+    </div>
+    <nav class="app-nav" aria-label="Navegación principal">
+      <a class="active" href="tecnicos.html">Pedidos</a>
+      <a href="Admin.html">Registros</a>
+      <a href="#nuevo">Técnicos</a>
+    </nav>
+  </header>
 
+  <main class="app-shell">
+    <section class="hero-panel">
+      <div>
+        <span class="eyebrow">LEMCORP ALTAS</span>
+        <h2>Panel de solicitud de materiales</h2>
+        <p>El formulario se adapta a pantallas pequeñas y mantiene todos los módulos visibles sin taparse.</p>
+      </div>
+      <a class="secondary-action" href="Admin.html">Ver registros</a>
+    </section>
 
-<header>
-  <h1>LEMCORP ALTAS - Sistema de Pedidos</h1>
-</header>
+    <section id="nuevo" class="container form-panel">
+      <div class="section-heading">
+        <span>01</span>
+        <div>
+          <h2>Datos del técnico</h2>
+          <p>Ingresa el responsable y selecciona cantidades.</p>
+        </div>
+      </div>
 
-<div class="container">
-  <input type="text" id="nombre" placeholder="Nombre del técnico"><br><br>
+      <label class="field-label" for="nombre">Nombre del técnico</label>
+      <input class="form-field" type="text" id="nombre" placeholder="Ej. Carlos Pérez">
 
-  <div id="productos"></div>
+      <div class="section-heading compact">
+        <span>02</span>
+        <div>
+          <h2>Materiales disponibles</h2>
+          <p>Los controles quedan alineados y legibles en todas las tarjetas.</p>
+        </div>
+      </div>
 
-  <textarea id="adicional" placeholder="Mensaje adicional..." style="width:100%;height:60px;"></textarea><br>
+      <div id="productos" class="productos-grid"></div>
 
-  <button class="enviar" onclick="guardarPedido()">Guardar Pedido</button>
+      <label class="field-label" for="adicional">Mensaje adicional</label>
+      <textarea class="form-field form-textarea" id="adicional" placeholder="Notas para despacho, referencias o instrucciones..."></textarea>
 
-</div>
+      <button class="enviar" onclick="guardarPedido()">Guardar pedido</button>
+    </section>
+  </main>
 
-<script src="script.js"></script>
-<!-- Marca de agua LEMCORP -->
-<div class="marca-agua">
-  <img src="" alt="">
-</div>
-<div class="marca-agua">
-  <img src="URL_DE_TU_LOGO.png" alt="">
-</div>
+  <script src="script.js"></script>
 </body>
 </html>
-
-
-</body>
-</html>
-<div class="tabs">
-  <button onclick="mostrarTab('nuevo')">Nuevo Pedido</button>
-  <button onclick="mostrarTab('historial')">Historial</button>
-</div>
-
-<div id="nuevo" class="tab-content">
-  <!-- Aquí va tu formulario de pedidos -->
-  <input type="text" id="nombre" placeholder="Nombre del técnico"><br><br>
-  <div id="productos"></div>
-  <textarea id="adicional" placeholder="Mensaje adicional..." style="width:100%;height:60px;"></textarea><br>
-  <button class="enviar" onclick="guardarPedido()">Guardar Pedido</button>
-</div>
-
-<div id="historial" class="tab-content" style="display:none;">
-  <!-- Aquí se mostrarán los pedidos guardados -->
-  <h2>Historial de pedidos</h2>
-  <ul id="lista-pedidos"></ul>
-</div>
-
-<script>
-function mostrarTab(tabId) {
-  document.querySelectorAll('.tab-content').forEach(div => {
-    div.style.display = 'none';
-  });
-  document.getElementById(tabId).style.display = 'block';
-}
-
-// Ejemplo: cargar historial desde localStorage
-function cargarHistorial() {
-  const lista = document.getElementById("lista-pedidos");
-  lista.innerHTML = "";
-  let pedidos = JSON.parse(localStorage.getItem("pedidos")) || [];
-  pedidos.forEach(p => {
-    const li = document.createElement("li");
-    li.textContent = `${p.fecha} - ${p.tecnico}: ${p.materiales.join(", ")}`;
-    lista.appendChild(li);
-  });
-}
-</script>
